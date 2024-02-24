@@ -1,0 +1,39 @@
+#:kivy 1.0.9
+
+<AlarmRoot>:
+    canvas:
+        Rectangle:
+            pos: 0, self.center_y + 150
+            size: self.height * 2, 10
+    Label:
+        font_size: 60
+        center_x: root.width / 2
+        top: root.top - 20
+        text: "Alarm App"
+    Label:
+        id: main_msg
+        font_size: 25
+        center_x: root.width / 2
+        top: root.top - 140
+        text: "First enter verification hash."
+    Image:
+        id: main_btn
+        source: 'assets/default_btn.png'
+        center_x: root.width / 2
+        top: root.top - 240
+        size: (170, 170)
+        on_touch_down: root.btn_action(*args)
+    TextInput:
+        id: main_input
+        hint_text: "Enter your hash here..."
+        center_x: root.width / 2
+        center_y: root.height / 2 - 180
+        size: (280, 30)
+        multiline: False
+    Button:
+        id: verification_btn
+        center_x: root.width / 2
+        center_y: root.height / 2 - 250
+        size: (380, 60)
+        text: "Enter"
+        on_release: root.verification(*args)
